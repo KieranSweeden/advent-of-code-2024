@@ -34,4 +34,20 @@ impl Round {
         }
         false
     }
+
+    pub fn get_color_counts(&self) -> (i32, i32, i32) {
+        let mut red_count = 0;
+        let mut green_count = 0;
+        let mut blue_count = 0;
+
+        for collection in self.collections.iter() {
+            match collection.color {
+                Color::Red => red_count = collection.count,
+                Color::Green => green_count = collection.count,
+                Color::Blue => blue_count = collection.count,
+            }
+        }
+
+        (red_count, green_count, blue_count)
+    }
 }
